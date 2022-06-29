@@ -68,6 +68,11 @@ const {choice} = await inquirer.prompt({
         },
         {
             key: 'd',
+            name: `View ${petName} stats`,
+            value: 'stats',
+        },
+        {
+            key: 'e',
             name: 'Quit the game',
             value: 'quit',
         },
@@ -77,13 +82,13 @@ const {choice} = await inquirer.prompt({
 if (choice === 'play') await myPet.play();
 if (choice === 'eats') await myPet.eats();
 if (choice === 'drinks') await myPet.drinks();
+if (choice === 'stats') await myPet.stats();
 if (choice === 'quit') {
 const quitChoice = await myPet.quit();
 if (quitChoice) return;
 
-return myPet.stats();
-
 userChoice();
+myPet.stats();
 };
 }
 
