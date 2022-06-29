@@ -1,12 +1,12 @@
 class Pet {
-    constructor (name) {
-    this.name = name;
+    constructor (petName) {
+    this.petName = petName;
     this.health = 100;
     this.hunger = 100;
     }
 
     greet() {
-        console.log(`Hello, my name is ${this.name}.`);
+        console.log(`Hello, my name is ${this.petName}.`);
     }
     
     drinks() {
@@ -17,12 +17,11 @@ class Pet {
     eats(){
         this.health += 5;
         this.hunger += 10;
-        console.log(`${this.name} has been fed.`);
+        console.log(`${this.petName} has been fed.`);
         return this;
     }
     stats(){
         return console.table({
-            name: this.name,
             health: this.health,
             hunger: this.hunger,
         });

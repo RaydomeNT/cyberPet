@@ -25,7 +25,7 @@ async function start() {
             },
             {
                 key: 'c',
-                name: 'Saber tooth tiger',
+                name: 'Saber tooth tiger',             
                 value: 'saberToothTiger',
             },
         ]
@@ -41,7 +41,50 @@ if (typeOfPet === 'dog') myPet = new Dog(petName);
 else if (typeOfPet === 'saberToothTiger') myPet = new SaberToothTiger(petName);
 else if (typeOfPet === 'fleshEatingVirus') myPet = new FleshEatingVirus(petName);
 
+// userChoice();
+// }
+
+// async function choice() {
+const {choice} = await inquirer.prompt({
+    type: 'list',
+    name: 'choice',
+    message:
+    `What would you like to do with ${petName}`,
+    choices: [
+        {
+            key: 'a',
+            name: `Play with ${petName} `,
+            value: 'play',
+        },
+        {
+            key: 'b',
+            name: `Feed ${petName}`,
+            value: 'eats',
+        },
+        {
+            key: 'c',
+            name: `Give ${petName} a drink`,
+            value: 'drinks',
+        },
+        {
+            key: 'd',
+            name: 'Quit the game',
+            value: 'quit',
+        },
+    ]
+});
+
+if (choice === 'play') await myPet.play();
+if (choice === 'eats') await myPet.eats();
+if (choice === 'drinks') await myPet.drinks();
+if (choice === 'quit') {
+const quitChoice = await myPet.quit();
+if (quitChoice) return;
+
+return myPet.stats();
+
 userChoice();
+};
 }
 
 start();
