@@ -1,7 +1,8 @@
 const inquirer = require('inquirer'); 
-const {dog} = require('./dog')
-const {fleshEatingVirus} = require('./fleshEatingVirus')
-const {saberToothTiger} = require('./cannibal')
+const { Pet } = require('./pet')
+const { Dog } = require('./dog')
+const { FleshEatingVirus } = require('./fleshEatingVirus')
+const { SaberToothTiger } = require('./saberToothTiger')
 
 let myPet;
 
@@ -19,15 +20,28 @@ async function start() {
             },
             {
                 key: 'b',
-                name: 'Cthulu',
-                value: 'cthulu',
+                name: 'Flesh eating virus',
+                value: 'fleshEatingVirus',
             },
             {
                 key: 'c',
-                name: 'Cannibal',
-                value: 'cannibal',
+                name: 'Saber tooth tiger',
+                value: 'saberToothTiger',
             },
         ]
     })
-};
+
+const { petName } = await inquirer.prompt({
+    type: 'input',
+    name: 'petName',
+    message: 'What is your pet called?',
+});
+
+if (typeOfPet === 'dog') myPet = new Dog(petName);
+else if (typeOfPet === 'saberToothTiger') myPet = new SaberToothTiger(petName);
+else if (typeOfPet === 'fleshEatingVirus') myPet = new FleshEatingVirus(petName);
+
+userChoice();
+}
+
 start();
