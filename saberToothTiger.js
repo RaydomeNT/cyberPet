@@ -1,6 +1,6 @@
 const { Pet } = require('./pet');
 
-class Dog extends Pet {
+class SaberToothTiger extends Pet {
     constructor(name, content) {
         super(name, content);
         this.content = content;
@@ -9,6 +9,7 @@ class Dog extends Pet {
     play(){
         this.health += 20;
         this.hunger -= 10;
-        console.log(`You played fetch with ${this.name}, you threw a ball, they came back with a human arm.... `)
+        console.log
+        (`You played with ${this.name}, you wanted them to chase the laser pointer, they were too smart for this, so used you as a chew toy instead.`)
     }
 }

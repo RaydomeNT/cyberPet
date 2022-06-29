@@ -1,6 +1,7 @@
-const inquirer = require('inquirer');
-const {cthulu} = require('./cthulu')
-const {cannibal} = require('./cannibal')
+const inquirer = require('inquirer'); 
+const {dog} = require('./dog')
+const {fleshEatingVirus} = require('./fleshEatingVirus')
+const {saberToothTiger} = require('./cannibal')
 
 let myPet;
 
