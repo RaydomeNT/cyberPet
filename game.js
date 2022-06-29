@@ -43,8 +43,9 @@ else if (typeOfPet === 'fleshEatingVirus') myPet = new FleshEatingVirus(petName)
 
 // userChoice();
 // }
-
 // async function choice() {
+    let x = 0
+    while (x == 0){
 const {choice} = await inquirer.prompt({
     type: 'list',
     name: 'choice',
@@ -85,11 +86,12 @@ if (choice === 'drinks') await myPet.drinks(), myPet.stats();
 if (choice === 'stats') await myPet.stats();
 if (choice === 'quit') {
 const quitChoice = await myPet.quit();
-if (quitChoice) return;
+if (choice == 'quit') {x = 1}
 
+// if (quitChoice) return;
 // userChoice();
 // myPet.stats();
 };
 }
-
+}
 start();
