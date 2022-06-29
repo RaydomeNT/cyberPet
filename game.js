@@ -79,16 +79,16 @@ const {choice} = await inquirer.prompt({
     ]
 });
 
-if (choice === 'play') await myPet.play();
-if (choice === 'eats') await myPet.eats();
-if (choice === 'drinks') await myPet.drinks();
+if (choice === 'play') await myPet.play(), myPet.stats();
+if (choice === 'eats') await myPet.eats(), myPet.stats();
+if (choice === 'drinks') await myPet.drinks(), myPet.stats();
 if (choice === 'stats') await myPet.stats();
 if (choice === 'quit') {
 const quitChoice = await myPet.quit();
 if (quitChoice) return;
 
-userChoice();
-myPet.stats();
+// userChoice();
+// myPet.stats();
 };
 }
 

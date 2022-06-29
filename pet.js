@@ -20,6 +20,9 @@ class Pet {
         console.log(`${this.petName} has been fed.`);
         return this;
     }
+    quit(){
+        console.log(`You have abandoned ${this.petName}, you are a bad owner`)
+    }
     stats(){
         return console.table({
             health: this.health,
