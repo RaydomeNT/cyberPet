@@ -53,6 +53,11 @@ const {choice} = await inquirer.prompt({
     `What would you like to do with ${petName}`,
     choices: [
         {
+            key: 'z',
+            name: `Greet ${petName} `,
+            value: 'greet',
+        },
+        {
             key: 'a',
             name: `Play with ${petName} `,
             value: 'play',
@@ -80,6 +85,7 @@ const {choice} = await inquirer.prompt({
     ]
 });
 
+if (choice === 'greet') await myPet.greet(), myPet.stats();
 if (choice === 'play') await myPet.play(), myPet.stats();
 if (choice === 'eats') await myPet.eats(), myPet.stats();
 if (choice === 'drinks') await myPet.drinks(), myPet.stats();
