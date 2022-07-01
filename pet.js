@@ -8,9 +8,12 @@ class Pet {
     }
     
     quit(){
-        console.log(`You have abandoned ${this.petName}, you are a bad owner`)
+        //process exit to end the game
+        console.log(`You have abandoned ${this.petName}, you are a bad owner!`);
+        process.exit();
     }
     stats(){
+        //table of contents which is returned after each interaction
         return console.table({
             name: this.petName,
             health: this.health,

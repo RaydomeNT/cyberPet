@@ -1,17 +1,17 @@
 const inquirer = require('inquirer'); 
-const { Pet } = require('./pet')
-const { Dog } = require('./dog')
-const { FleshEatingVirus } = require('./fleshEatingVirus')
-const { SaberToothTiger } = require('./saberToothTiger')
+const { Pet } = require('./pet');
+const { Dog } = require('./dog');
+const { FleshEatingVirus } = require('./fleshEatingVirus');
+const { SaberToothTiger } = require('./saberToothTiger');
 
+//choosse the type of pet you would like
 let myPet;
 
 async function start() {
     const {typeOfPet} = await inquirer.prompt({
         type: 'list',
         name: 'typeOfPet',
-        message:
-        'What type of pet would you like? Please choose from the following:',
+        message: 'What type of pet would you like? Please choose from the following:',
         choices: [
             {
                 key: 'a',
@@ -29,8 +29,9 @@ async function start() {
                 value: 'saberToothTiger',
             },
         ]
-    })
+    });
 
+//give your pet a name
 const { petName } = await inquirer.prompt({
     type: 'input',
     name: 'petName',
@@ -41,9 +42,7 @@ if (typeOfPet === 'dog') myPet = new Dog(petName);
 else if (typeOfPet === 'saberToothTiger') myPet = new SaberToothTiger(petName);
 else if (typeOfPet === 'fleshEatingVirus') myPet = new FleshEatingVirus(petName);
 
-// userChoice();
-// }
-// async function choice() {
+//Use a while loop to bring back the ist of choice after you have picked one unless the pet dies or the player quits
     let x = 0
     while (x == 0){
 const {choice} = await inquirer.prompt({
@@ -92,12 +91,9 @@ if (choice === 'drinks') await myPet.drinks(), myPet.stats();
 if (choice === 'stats') await myPet.stats();
 if (choice === 'quit') {
 const quitChoice = await myPet.quit();
-if (choice == 'quit') {x = 1}
-
-// if (quitChoice) return;
-// userChoice();
-// myPet.stats();
+//end the loop when the player quits
+if (choice == 'quit') {x = 1};
+        };
+    };
 };
-}
-}
 start();
